@@ -1,7 +1,7 @@
 # generate_makefile.py
 
-DEST_DIR = "/Users/vatsalsalla/Desktop/test/practice/expert-potato/build"
-SRC_DIR = "/Users/vatsalsalla/Desktop/test/practice/expert-potato/src"
+DEST_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/build"
+SRC_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/src"
 
 def generate_makefile():
     makefile_content = f"""
