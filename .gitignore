@@ -2,3 +2,12 @@
 *.code-workspace
 build/*
 Makefile
+bazel/bazel-out
+bazel/bazel-bin
+bazel/bazel-bazel
+bazel/bazel-testlogs
+bazel/.bazelversion
+bazel/MODULE.bazel
+bazel/MODULE.bazel.lock
+bazel/WORKSPACE.bazel
+bazel/projects_bazel/examples/
