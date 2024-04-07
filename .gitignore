@@ -11,3 +11,6 @@ bazel/MODULE.bazel
 bazel/MODULE.bazel.lock
 bazel/WORKSPACE.bazel
 bazel/projects_bazel/examples/
+**/build/
+cpp_src/WORKSPACE
+cpp_src/lib/

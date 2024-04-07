@@ -1,9 +1,9 @@
 # generate_makefile.py
 
-DEST_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/build"
-SRC_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/src"
+DEST_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/cpp_src/build"
+SRC_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/cpp_src"
 
-def generate_makefile():
+def generate_makefile(makefile_location):
     makefile_content = f"""
 # This MakeFile is designed to compile C++ programs only
 # Specify the output file name
@@ -23,9 +23,10 @@ $(OUTPUT_FILE): {SRC_DIR}/main.cpp
 all: $(OUTPUT_FILE)
 """.strip()                 # Used strip to remove space top and bottom lines inside the Makefile
 
-    with open("Makefile", "w") as makefile:
+    with open(makefile_location, "w") as makefile:
         makefile.write(makefile_content)
 
 if __name__ == "__main__":
-    generate_makefile()
+    makefile_location = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/cpp_src/Makefile.mk"
+    generate_makefile(makefile_location)
     print("Makefile generated successfully.")
