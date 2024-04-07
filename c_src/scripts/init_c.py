@@ -1,11 +1,11 @@
 # generate_makefile.py
 
-DEST_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/cpp_src/build"
-SRC_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/cpp_src"
+DEST_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/c_src/build"
+SRC_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/c_src"
 
 def generate_makefile(makefile_location):
     makefile_content = f"""
-# This MakeFile is designed to compile C++ programs only
+# This MakeFile is designed to compile C programs only
 # Specify the output file name
 OUTPUT_FILE = output
 
@@ -14,8 +14,8 @@ SRC_DIR = {SRC_DIR}
 DEST_DIR = {DEST_DIR}
 
 # Compile rule
-$(OUTPUT_FILE): {SRC_DIR}/main.cpp
-	g++ -o $(OUTPUT_FILE) {SRC_DIR}/main.cpp
+$(OUTPUT_FILE): {SRC_DIR}/main.c
+	gcc -o $(OUTPUT_FILE) {SRC_DIR}/main.c
 	./$(OUTPUT_FILE)
 	mv $(OUTPUT_FILE) $(DEST_DIR)/
 
@@ -27,6 +27,6 @@ all: $(OUTPUT_FILE)
         makefile.write(makefile_content)
 
 if __name__ == "__main__":
-    makefile_location = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/cpp_src/Makefile.mk"
+    makefile_location = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/c_src/Makefile"
     generate_makefile(makefile_location)
     print("Makefile generated successfully.")
