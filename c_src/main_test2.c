@@ -151,14 +151,14 @@ void string_ops() {
   char *ptr1 = strchr(cat_str, 'a');
   if (ptr1 != NULL)
     printf("\nFirst occurence of %c is at index = %d", 'a',
-           (ptr1 - cat_str)); // First occurence
+           (int)(ptr1 - cat_str)); // First occurence
   else
     printf("\nNo match found!");
   //  Last occurence, NULL if not found
   char *ptr2 = strrchr(cat_str, 'a');
   if (ptr2 != NULL)
     printf("\nLast occurence of %c is at index = %d", 'a',
-           (ptr2 - cat_str)); // Last occurence
+           (int)(ptr2 - cat_str)); // Last occurence
   else
     printf("\nNo match found!");
 }
