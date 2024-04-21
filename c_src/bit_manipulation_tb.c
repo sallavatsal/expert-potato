@@ -12,6 +12,16 @@ void end() { // This will be like a destructor call
   printf("\n\n***********************************\n\n");
 }
 
+void printBinary(uint8_t n) {
+  for (int i = 7; i >= 0; --i) {
+    if (((n >> i) & 1) == 1) {
+      printf("1");
+    } else {
+      printf("0");
+    }
+  }
+}
+
 /* Check if kth bit is set in integer n
  * Algorithm: Brian Kerningam's to count set bits
  */
@@ -112,9 +122,35 @@ void genPowerSet(char *s, size_t size) {
   return;
 }
 
+// Swap the nibbles of two number
+void swapNibbles(uint8_t *n) {
+  uint8_t temp = *n;
+  temp = (((temp & 0x0F) << 4) | ((temp & 0xF0) >> 4));
+  *n = temp;
+}
+
+// Swap bits in a given number
+void swapBits(int *n, int p1, int p2) {
+  // Check if these bits are different. If they are, swap them!
+  if (((*n >> p1) & 1) != ((*n >> p2) & 1)) {
+    *n ^= (1U << p1);
+    *n ^= (1U << p2);
+  }
+}
+
+void swapNbits(int *n, int p1, int p2, int numBits) {
+  int mask = (1U << numBits) - 1; // Left shift of 1U is like multiplying by 2
+  int set1 = (*n >> p1) & mask;
+  int set2 = (*n >> p2) & mask;
+  int xor = set1 ^ set2;
+  xor = (xor << p1) | (xor << p2);
+  *n = *n ^ xor;
+}
+
 void selfPacedDsa() {
   // Initializations
-  int n = 13, m = 7, k = 2;
+  int n = 47, m = 7, k = 2;
+  uint8_t num = 32;
 
   // Init statement
   printf("Bit manipulation!\n");
@@ -145,6 +181,30 @@ void selfPacedDsa() {
   char s[] = {'a', 'b', 'c'}; // Modifiable character array
   printf("\nPower set of character array s = ");
   genPowerSet(s, (size_t)(sizeof(s) / sizeof(s[0])));
+
+  // Nibble swaps of two numbers
+  printf("\nBefore nibble swap: \t0b ");
+  printBinary(num);
+  swapNibbles(&num);
+  printf("\nAfter nibble swap: \t0b ");
+  printBinary(num);
+
+  // Swap bits
+  int p1 = 1, p2 = 4;
+  printf("\nBefore bit 1 and bit 4 swap: \t0b ");
+  printBinary(n);
+  swapBits(&n, p1, p2);
+  printf("\nAfter bit 1 and bit 4 swap: \t0b ");
+  printBinary(n);
+
+  // Swap multiple bits
+  int numBits = 3;
+  n = 47;
+  printf("\nBefore swapping bits at locations bit 1 and bit 4: \t0b ");
+  printBinary(n);
+  swapNbits(&n, p1, p2, numBits); // p1<p2 and bits do not overlap
+  printf("\nAfter swapping bits at locations bit 1 and bit 4: \t0b ");
+  printBinary(n);
 }
 
 int main() {
