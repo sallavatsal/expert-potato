@@ -5,7 +5,7 @@ DEST_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/c_src/bui
 SRC_DIR = "/Users/vatsalsalla/Desktop/projects/practice/expert-potato/c_src"
 
 def generate_makefile(makefile_location, filename):
-    filename = f"{filename}.c"  # Append .c extension
+    filename = f"{filename}"
     makefile_content = f"""
 # This MakeFile is designed to compile C programs only
 # Specify the output file name

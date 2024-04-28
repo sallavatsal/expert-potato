@@ -41,46 +41,6 @@ void swap(int *a, int *b) {
   *b = temp;
 }
 
-vector_t *dynamicArrayInit(const int cap) {
-  vector_t *temp;
-  temp->arr = malloc(cap * sizeof(int));
-  temp->cap = cap;
-  temp->size = 0;
-  return temp;
-}
-
-void freeArrayOfLinkedLists(node_t **heads) {
-  // Free
-  free(heads);
-}
-
-void deleteDynamicArray(vector_t *temp) {
-  // Free array space
-  free(temp->arr);
-}
-
-int getSize(vector_t *temp) {
-  // Get size
-  return temp->size;
-}
-
-int getCap(vector_t *temp) {
-  // Get capacity
-  return temp->size;
-}
-
-void append(vector_t *temp, int x) {
-  if (temp->size == temp->cap) {
-    temp->cap = 2 * (temp->cap);               // Update capacity
-    temp->arr = realloc(temp->arr, temp->cap); // Reallocate memory
-    if (temp->arr == NULL) {
-      printf("\nMalloc error reported");
-    }
-    (temp->size)++; // Increment size
-    temp->arr[temp->size] = x;
-  }
-}
-
 // Hash function
 int hash(int key) {
   // Putting the entry in the hash table
